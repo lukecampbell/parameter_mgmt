@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Parameter Entry</title>
+        <link type='text/css' rel='stylesheet' href='/static/face.css'>
+          <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+          <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+
+    </head>
+    <body>
+        <div class="navbar navbar-fixed-top" id="header"> 
+            <nav>
+            <ul>
+                <li id='home'>
+                <a href='/'>Home</a>
+                </li>
+                <li id='option2'>
+                <a href='/'>Option2 </a>
+                </li>
+                <li id='option3'>
+                <a href='/'>Option 3</a>
+                </li>
+                <li id='option4'>
+                <a href='/'>Option 4</a>
+                </li>
+            </ul>
+            </nav>
+        </div>
+        <div id='title'>
+            <h1> Temperature </h1>
+        </div>
+        <div id='entry'>
+            <table>
+                {% for name in names %}
+                <tr><td>{{ name }} </td></tr>
+
+                {% endfor %}
+            </table>
+
+        </div>
+    </body>
+</html>
+
+

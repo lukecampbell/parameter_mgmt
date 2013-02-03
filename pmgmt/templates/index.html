@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Parameter Entry</title>
+        <link type='text/css' rel='stylesheet' href='/static/face.css'>
+          <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+          <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+          <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"/>
+          <script type='text/javascript'>
+              var positions = [{"top":138,"left":5},{"top":250,"left":10},{"top":139,"left":626},{"top":139,"left":445},{"top":135,"left":805},{"top":424,"left":1},{"top":138,"left":231},{"top":305,"left":6},{"top":360,"left":2}];
+              var sizes = [{"width":205,"height":88},{"width":972,"height":38},{"width":167,"height":87},{"width":162,"height":85},{"width":177,"height":94},{"width":974,"height":161},{"width":193,"height":85},{"width":979,"height":36},{"width":980,"height":44}]
+
+              $(function() {
+                  //$('.box').draggable().resizable();
+                  $('.box').each(function(i,x) { 
+                      x.style.top = positions[i].top + 'px';
+                      x.style.left = positions[i].left + 'px';
+                      x.style.width = sizes[i].width + 'px';
+                      x.style.height = sizes[i].height;
+                  });
+              });
+          </script>
+
+    </head>
+    <body>
+        <div class="navbar navbar-fixed-top" id="header"> 
+            <nav>
+            <ul>
+                <li id='home'>
+                <a href='/'>Home</a>
+                </li>
+                <li id='option2'>
+                <a href='/'>Option2 </a>
+                </li>
+                <li id='option3'>
+                <a href='/'>Option 3</a>
+                </li>
+                <li id='option4'>
+                <a href='/'>Option 4</a>
+                </li>
+            </ul>
+            </nav>
+        </div>
+        <div id='title'>
+            <h1> Temperature </h1>
+        </div>
+        <div id='entry'>
+            <table>
+                <tr>
+                    <td>Scenario </td><td> R2_DEMO</td>
+                </tr>
+                <tr>
+                    <td> Parameter Type </td><td> Quantity </td>
+                </tr>
+                <tr>
+                    <td> Unit of Measure </td><td> uglieness </td>
+                </tr>
+                <tr>
+                    <td> Display Name</td><td> Blah</td>
+                </tr>
+                <tr>
+                    <td> Standard Name </td><td> Argh </td>
+                </tr>
+                <tr>
+                    <td> Long Name </td><td> Fantastic</td>
+                </tr>
+                <tr>
+                    <td> Data Product </td><td> something </td>
+                </tr>
+                <tr>
+                    <td> Confluence</td><td> RefURL</td>
+                </tr>
+                <tr>
+                    <td> References </td><td> Additional References</td>
+                </tr>
+            </table>
+
+        </div>
+    </body>
+</html>
+
+
