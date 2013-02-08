@@ -9,6 +9,9 @@ patch_all()
 
 from flask import Flask, render_template, url_for, redirect
 from controllers.parameters import parameters
+from model.csv_model import initialize_models
+
+initialize_models()
 
 
 port = 5201
@@ -21,7 +24,6 @@ def index():
 
 
 app.add_url_rule('/parameters','parameters',parameters)
-
 
 
 if __name__ == '__main__':
