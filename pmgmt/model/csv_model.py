@@ -37,7 +37,7 @@ def initialize_models(cursor_path=None):
     cursor.execute(parameter_schema)
     cursor.execute(parameter_dict_schema)
     cursor.execute(pdict_param_schema)
-    with open('pmgmt/model/Parameters.csv', 'r') as f:
+    with open('pmgmt/model/ParameterDefs.csv', 'r') as f:
         dr = csv.DictReader(f)
         for row in dr:
             if 'doc' in row['Scenario'].lower():

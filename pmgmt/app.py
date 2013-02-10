@@ -4,8 +4,12 @@
 @file pmgmt/app.py
 '''
 
-from gevent.monkey import patch_all
-patch_all()
+try:
+    from gevent.monkey import patch_all
+    patch_all()
+except ImportError:
+    # If we're using gevent, monkey patch everything before the app launches.
+    pass
 
 from flask import Flask, render_template, url_for, redirect
 from controllers.parameters import parameters
