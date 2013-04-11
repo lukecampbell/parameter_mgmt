@@ -22,32 +22,32 @@
             </nav>
         </div>
         <div id='title'>
-            <h1> Parameters </h1>
+            <h1> {{pdict.name}} </h1>
         </div>
         <div id='entry'>
             <table>
+                {% for field,value in pdict.iteritems() %}
                 <tr>
-                    {% for field,other in parameters[0].schema().iteritems() %}
-                    <td>{{field}}</td>
-                    {% endfor %}
-                </tr>
-                {% for parameter in parameters %}
-                    <tr>
-                        {% for field,value in parameter.iteritems() %}
-                        <td> 
-                            {% if field=='name' %}
-                            <a href="/parameter/{{parameter._id}}">{{value}}</a>
-                            {% else %}
+                    <td>{{field}}<td>
+                    <td>
+                        {% if field == 'parameters' %}
+                            {{pdict.list_parameter_links()|safe}}
+                        {% elif field == 'name' %}
+                            <a href='/pdict/{{pdict._id}}'>{{value}}</a>
+                        {% elif field == 'temporal_id' %}
+                            <a href='/parameter/{{value._id}}'>{{value.name}}</a>
+                        {% else %}
                             {{value}}
-                            {% endif %}
-                        </td>
-                        {% endfor %}
-                    </tr>
+                        {% endif %}
+                    </td>
+                </tr>
                 {% endfor %}
             </table>
 
         </div>
     </body>
 </html>
+
+
 
 

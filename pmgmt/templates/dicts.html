@@ -12,36 +12,36 @@
         <div class="navbar navbar-fixed-top" id="header"> 
             <nav>
             <ul>
-                <li id='parameters'>
-                <a href='/parameters'>Parameters</a>
+                <li id='home'>
+                <a href='/'>Home</a>
                 </li>
-                <li id='pdicts'>
-                <a href='/pdicts'>Pdicts</a>
+                <li id='option2'>
+                <a href='/'>Option2 </a>
+                </li>
+                <li id='option3'>
+                <a href='/'>Option 3</a>
+                </li>
+                <li id='option4'>
+                <a href='/'>Option 4</a>
                 </li>
             </ul>
             </nav>
         </div>
         <div id='title'>
-            <h1> Parameters </h1>
+            <h1> Temperature </h1>
         </div>
         <div id='entry'>
             <table>
                 <tr>
-                    {% for field,other in parameters[0].schema().iteritems() %}
+                {% for field,other in pdicts[0].schema().iteritems() %}
                     <td>{{field}}</td>
-                    {% endfor %}
+                {% endfor %}
                 </tr>
-                {% for parameter in parameters %}
+                {% for pdict in pdicts %}
                     <tr>
-                        {% for field,value in parameter.iteritems() %}
-                        <td> 
-                            {% if field=='name' %}
-                            <a href="/parameter/{{parameter._id}}">{{value}}</a>
-                            {% else %}
-                            {{value}}
-                            {% endif %}
-                        </td>
-                        {% endfor %}
+                    {% for field,value in pdict.iteritems() %}
+                        <td>{{value}}</td>
+                    {% endfor %}
                     </tr>
                 {% endfor %}
             </table>
@@ -49,5 +49,6 @@
         </div>
     </body>
 </html>
+
 
 

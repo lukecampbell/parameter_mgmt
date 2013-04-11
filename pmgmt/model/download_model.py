@@ -14,10 +14,7 @@ def get(cat):
     with codecs.open(fpath,'w', 'utf-8') as f:
         r = requests.get(categories[cat])
         f.write(r.text)
-
-if __name__ == '__main__':
-
-
+def main():
     import sys
     if len(sys.argv) > 1:
         for arg in sys.argv[1:]:
@@ -27,6 +24,11 @@ if __name__ == '__main__':
     else:
         for k in categories.iterkeys():
             get(k)
+
+
+if __name__ == '__main__':
+    main()
+
 
 
 

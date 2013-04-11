@@ -20,28 +20,33 @@
                 </li>
             </ul>
             </nav>
+            
         </div>
         <div id='title'>
-            <h1> Parameters </h1>
+            <h1> Parameter Dictionaries </h1>
         </div>
         <div id='entry'>
             <table>
                 <tr>
-                    {% for field,other in parameters[0].schema().iteritems() %}
+                {% for field,other in pdicts[0].schema().iteritems() %}
                     <td>{{field}}</td>
-                    {% endfor %}
+                {% endfor %}
                 </tr>
-                {% for parameter in parameters %}
+                {% for pdict in pdicts %}
                     <tr>
-                        {% for field,value in parameter.iteritems() %}
-                        <td> 
-                            {% if field=='name' %}
-                            <a href="/parameter/{{parameter._id}}">{{value}}</a>
-                            {% else %}
+                    {% for field,value in pdict.iteritems() %}
+                        <td>
+                        {% if field == 'parameters' %}
+                            {{pdict.list_parameter_links()|safe}}
+                        {% elif field == 'name' %}
+                            <a href='/pdict/{{pdict._id}}'>{{value}}</a>
+                        {% elif field == 'temporal_id' %}
+                            <a href='/parameter/{{value._id}}'>{{value.name}}</a>
+                        {% else %}
                             {{value}}
-                            {% endif %}
+                        {% endif %}
                         </td>
-                        {% endfor %}
+                    {% endfor %}
                     </tr>
                 {% endfor %}
             </table>
@@ -49,5 +54,6 @@
         </div>
     </body>
 </html>
+
 
 
