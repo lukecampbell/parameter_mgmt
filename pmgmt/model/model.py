@@ -28,16 +28,9 @@ def unicode_filter(input_dict):
         if not all(map(lambda x: ord(x) < 128,value)):
             for k,v in filters.iteritems():
                 if k in value:
-                    print 'Replacing ', k, ' with ', v
                     input_dict[key] = value.replace(k,v)
                     value = value.replace(k,v)
-                    print value
             if not all(map(lambda x:ord(x)<128,value)):
-                for s in value:
-                    if ord(s) >= 128:
-                        print 'Unrecognized character'
-                        print ord(s)
-                        print s
                 print 'Unable to fix string'
                 print value
                 print input_dict['ID']
@@ -64,14 +57,21 @@ def read_parameter_dictionaries(connection, path=''):
             if 'void' in row['Scenario'].lower():
                 continue
             unicode_filter(row)
+            try:
+                temporal_id = int(row['temporal_parameter'][2:]) or 7
+            except ValueError:
+                temporal_id = 7
             parameter_dictionary = ParameterDictionary(
-                    id=row['ID'][4:],
+                    id=int(row['ID'][4:]),
                     name=row['name'],
-                    temporal_id=row['temporal_parameter'][2:]
+                    temporal_id=temporal_id
                     )
             parameter_dictionary.create(connection)
-            for pid in row['parameter_ids']:
-                pass
+            for pid in row['parameter_ids'].split(','):
+                pid = pid.strip()
+                relation = ParameterRelation(parameter_dictionary_id=parameter_dictionary.id, parameter_id=int(pid[2:]))
+                relation.create(connection)
+
 
         connection.commit()
 

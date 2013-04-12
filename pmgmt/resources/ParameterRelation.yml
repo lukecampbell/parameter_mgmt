@@ -1,4 +1,3 @@
 ParameterRelation:
-  id: integer*
-  parameter_id: integer+
-  parameter_dictionary_id: integer+
+  parameter_dictionary_id: integer*
+  parameter_id: integer*

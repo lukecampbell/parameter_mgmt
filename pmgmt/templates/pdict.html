@@ -33,9 +33,9 @@
                         {% if field == 'parameters' %}
                             {{pdict.list_parameter_links()|safe}}
                         {% elif field == 'name' %}
-                            <a href='/pdict/{{pdict._id}}'>{{value}}</a>
+                            <a href='/pdict/{{pdict.id}}'>{{value}}</a>
                         {% elif field == 'temporal_id' %}
-                            <a href='/parameter/{{value._id}}'>{{value.name}}</a>
+                            <a href='/parameter/{{value.id}}'>{{value.name}}</a>
                         {% else %}
                             {{value}}
                         {% endif %}

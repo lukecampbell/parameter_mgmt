@@ -4,7 +4,6 @@ import pmgmt
 
 def read_config(config_path=''):
     path = config_path or pkg_resources.resource_filename(pmgmt.__name__,'resources/config.yml')
-    print path
     retval = {}
 
     with open(path,'r') as f:

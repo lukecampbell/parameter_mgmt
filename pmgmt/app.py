@@ -23,9 +23,11 @@ from pmgmt.util.config import read_config
 config = read_config()
 connection = Connection(config['database'])
 if config['database']==':memory:':
-    from pmgmt.model.model import initialize_parameters, initialize_parameter_dictionaries, read_parameters, read_parameter_dictionaries
+    from pmgmt.model.model import initialize_parameter_relations, initialize_parameters, initialize_parameter_dictionaries, read_parameters, read_parameter_dictionaries
     initialize_parameters(connection)
     initialize_parameter_dictionaries(connection)
+    initialize_parameter_relations(connection)
+
     read_parameters(connection)
     read_parameter_dictionaries(connection)
 
