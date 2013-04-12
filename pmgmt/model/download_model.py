@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 import requests
 import codecs
+import pkg_resources
 import os
+import pmgmt
 base_url = 'https://docs.google.com/spreadsheet/pub?key=0AttCeOvLP6XMdG82NHZfSEJJOGdQTkgzb05aRjkzMEE'
 categories = {
     'ParameterDefs.csv'           : '%s&single=true&gid=57&output=csv'% base_url,
@@ -9,7 +11,7 @@ categories = {
 }
 
 def get(cat):
-    fpath = os.path.join('pmgmt/model',cat)
+    fpath = os.path.join(pkg_resources.resource_filename(pmgmt.__name__,'resources'),cat)
     print 'Getting ', fpath
     with codecs.open(fpath,'w', 'utf-8') as f:
         r = requests.get(categories[cat])

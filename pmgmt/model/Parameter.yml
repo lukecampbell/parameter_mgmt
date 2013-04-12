@@ -1,0 +1,14 @@
+Parameter:
+  id: integer*
+  name: string
+  parameter_type: string
+  value_encoding: string
+  code_set: string
+  uom: string
+  precision: integer
+  fill_value: string
+  display_name: string
+  standard_name: string
+  long_name: string
+  data_product: string
+

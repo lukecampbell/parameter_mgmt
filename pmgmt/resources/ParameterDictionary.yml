@@ -1,0 +1,4 @@
+ParameterDictionary:
+  id: integer*
+  name: string
+  temporal_id: integer+

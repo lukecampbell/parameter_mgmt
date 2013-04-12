@@ -27,7 +27,7 @@
         <div id='entry'>
             <table>
                 <tr>
-                    {% for field,other in parameters[0].schema().iteritems() %}
+                    {% for field in parameters[0]._fields %}
                     <td>{{field}}</td>
                     {% endfor %}
                 </tr>
@@ -36,7 +36,7 @@
                         {% for field,value in parameter.iteritems() %}
                         <td> 
                             {% if field=='name' %}
-                            <a href="/parameter/{{parameter._id}}">{{value}}</a>
+                            <a href="/parameter/{{parameter.id}}">{{value}}</a>
                             {% else %}
                             {{value}}
                             {% endif %}

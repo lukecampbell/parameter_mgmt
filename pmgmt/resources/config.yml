@@ -1,0 +1,10 @@
+
+
+port: 5201
+host: localhost
+database: ":memory:"
+template_folder: $/templates
+static_folder: $/static
+debug: True
+
+
